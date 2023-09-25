@@ -6,7 +6,7 @@ const DonationCard = ({data}) => {
     return (
       <div>
 
-        <div className="border rounded-lg flex flex-row w-full lg:w-[550px]" style={{backgroundColor: secondary_color}}>
+        <div className="border rounded-lg flex flex-row w-full lg:w-[500px] xl:w-[600px]" style={{backgroundColor: secondary_color}}>
                     <img className="w-1/3" src={picture} alt="" />
                    
                    <div>
