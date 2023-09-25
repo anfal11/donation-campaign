@@ -20,26 +20,53 @@ const Card = () => {
   }, [cards, id]);
 
   const handleClickDonate = () => {
-    toast.success(`You have donated $${card.price}`, {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-        });
+
 
         const donatedArray = [];
         const donated = JSON.parse(localStorage.getItem("donated"));
         if(!donated){
             donatedArray.push(card);
             localStorage.setItem("donated", JSON.stringify(donatedArray));
+            toast.success(`You have donated $${card.price}`, {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                });
         } else {
-            donatedArray.push(...donated, card);
-            localStorage.setItem("donated", JSON.stringify(donatedArray));
-        }
+
+            const isExist = donated.find( item => item.id === JSON.parse(id));
+            if(!isExist){
+                donatedArray.push(...donated, card);
+                localStorage.setItem("donated", JSON.stringify(donatedArray));
+                toast.success(`You have donated $${card.price}`, {
+                    position: "top-center",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                    });
+            }else {
+                toast.error(`You have already donated $${card.price}`, {
+                    position: "top-center",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                    });
+            }
+
+        } 
   }
 
 
