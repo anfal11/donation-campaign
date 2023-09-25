@@ -4,7 +4,7 @@ import Logo from "./Logo";
 const NavBar = () => {
   return (
     <div>
-      <div className="navbar lg:flex lg:justify-between lg:items-center">
+      <div className="navbar lg:flex lg:justify-around lg:items-center">
   <div className="navbar-start">
     <div className="dropdown">
       <label tabIndex={0} className="btn btn-ghost lg:hidden">
