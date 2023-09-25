@@ -3,11 +3,14 @@ import MainLayout from "../Layout/MainLayout";
 import Home from "../pages/Home/Home";
 import Donation from "../pages/Donation/Donation";
 import Statistics from "../pages/Statistics/Statistics";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import Card from "../pages/Card/Card";
 
 const myCreatedRoute = createBrowserRouter([
     {
         path: "/",
         element: <MainLayout></MainLayout>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: "/",
@@ -15,12 +18,17 @@ const myCreatedRoute = createBrowserRouter([
                 loader: () => fetch('https://raw.githubusercontent.com/anfal11/donation.json/main/donation.json')
             },
             {
-                path: "/donation",
+                path: "/donations",
                 element: <Donation></Donation>
             }, 
             {
                 path: "/statistics",
                 element: <Statistics></Statistics>
+            },
+            {
+                path: `/donation/:id`,
+                element: <Card></Card>,
+                loader: () => fetch('https://raw.githubusercontent.com/anfal11/donation.json/main/donation.json')
             }
         ]
     }
