@@ -20,7 +20,6 @@ const Card = () => {
   }, [cards, id]);
 
   const handleClickDonate = () => {
-console.log(card);
     toast.success(`You have donated $${card.price}`, {
         position: "top-center",
         autoClose: 5000,
@@ -31,7 +30,19 @@ console.log(card);
         progress: undefined,
         theme: "light",
         });
+
+        const donatedArray = [];
+        const donated = JSON.parse(localStorage.getItem("donated"));
+        if(!donated){
+            donatedArray.push(card);
+            localStorage.setItem("donated", JSON.stringify(donatedArray));
+        } else {
+            donatedArray.push(...donated, card);
+            localStorage.setItem("donated", JSON.stringify(donatedArray));
+        }
   }
+
+
 
  return (
     <>
