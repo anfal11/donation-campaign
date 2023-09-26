@@ -23,7 +23,8 @@ const myCreatedRoute = createBrowserRouter([
             }, 
             {
                 path: "/statistics",
-                element: <Statistics></Statistics>
+                element: <Statistics></Statistics>,
+                loader: () => fetch('https://raw.githubusercontent.com/anfal11/donation.json/main/donation.json')
             },
             {
                 path: `/donation/:id`,
