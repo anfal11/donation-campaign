@@ -6,21 +6,24 @@ const Statistics = () => {
   const cards = useLoaderData();
 
   const totalDonations = JSON.parse(cards).length;
+  const yourDonations = donated ? donated.length : 0;
+
+  const yourDonationPercentage = (yourDonations / totalDonations) * 100;
+
+  const totalDonationPercentage = ((totalDonations - yourDonations) / totalDonations) * 100;
 
   const data = [
-    ["Total donation", "My donation"],
-    ["Your Donation", donated ? donated.length : 0], 
-    ["Total Donation", totalDonations], 
+    ["Donation Type", "Percentage"],
+    ["Your Donation", yourDonationPercentage],
+    ["Total Donation", totalDonationPercentage],
   ];
 
   return (
     <div>
-      <Chart
-        chartType="PieChart"
-        data={data}
-        width={"100%"}
-        height={"400px"}
-      />
+      <Chart chartType="PieChart" 
+      data={data} 
+      width={"100%"} 
+      height={"400px"} />
     </div>
   );
 };

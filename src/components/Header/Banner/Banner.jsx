@@ -1,9 +1,15 @@
 import { useState } from "react";
 
-const Banner = () => {
-  const [search ,setSearch] = useState('');
-  const [searchResults, setSearchResults] = useState([]);
+const Banner = ({data}) => {
 
+  const [value, setValue] = useState("");
+  console.log(value);
+  // console.log(JSON.parse(data));
+  // console.log(data.filter(item => item.category.toLowerCase() === "FooD".toLowerCase()));
+  const handleChange = (value) => {
+    setValue(value);
+    console.log(value);
+  }
     return (
       <div
         className="hero h-[70vh]"
@@ -21,7 +27,8 @@ const Banner = () => {
             <div className="form-control">
               <div className="input-group  justify-center">
                 <input
-                  onChange={e => setSearch(e.target.value)}
+                  value={value}
+                  onChange={(e) => handleChange(e.target.value)}
                   type="text"
                   placeholder="Search here by category..."
                   className="input md:w-[400px] input-bordered text-black font-semibold"

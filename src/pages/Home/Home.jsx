@@ -7,7 +7,7 @@ const Home = () => {
     
     return (
         <div>
-            <Banner></Banner>
+            <Banner data= {data}></Banner>
 
             {/* cards part starts from here */}
 
