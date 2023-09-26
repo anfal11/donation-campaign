@@ -33,9 +33,9 @@ const Banner = ({handleSearchValue}) => {
                   onChange={(e) => setValue(e.target.value)}
                   type="text"
                   placeholder="Search here by category..."
-                  className="input md:w-[400px] input-bordered text-black font-semibold"
+                  className="input md:w-[400px] input-bordered border-[#DEDEDE]  text-red-600 font-semibold placeholder:text-[#0b0b0b5e] placeholder:font-normal -mr-1 focus:outline-none"
                 />
-                <button onClick={searchCategory} className="btn bg-[#FF444A] text-white font-semibold">
+                <button onClick={searchCategory} className="btn hover:bg-[#0052FF]  bg-[#FF444A] text-white font-semibold active:hover:transform-none">
                  Search
                 </button>
               </div>
