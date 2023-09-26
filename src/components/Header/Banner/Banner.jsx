@@ -1,4 +1,9 @@
+import { useState } from "react";
+
 const Banner = () => {
+  const [search ,setSearch] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
+
     return (
       <div
         className="hero h-[70vh]"
@@ -16,6 +21,7 @@ const Banner = () => {
             <div className="form-control">
               <div className="input-group  justify-center">
                 <input
+                  onChange={e => setSearch(e.target.value)}
                   type="text"
                   placeholder="Search here by category..."
                   className="input md:w-[400px] input-bordered text-black font-semibold"
