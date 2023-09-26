@@ -1,15 +1,17 @@
 import { useState } from "react";
+import PropTypes from 'prop-types';
 
-const Banner = ({data}) => {
+const Banner = ({handleSearchValue}) => {
 
   const [value, setValue] = useState("");
-  console.log(value);
-  // console.log(JSON.parse(data));
-  // console.log(data.filter(item => item.category.toLowerCase() === "FooD".toLowerCase()));
-  const handleChange = (value) => {
-    setValue(value);
-    console.log(value);
+
+  const searchCategory = () => {
+      handleSearchValue(value);
   }
+  // console.log(JSON.parse(value));
+
+  // console.log(data.filter(item => item.category.toLowerCase() === "FooD".toLowerCase()));
+ 
     return (
       <div
         className="hero h-[70vh]"
@@ -28,12 +30,12 @@ const Banner = ({data}) => {
               <div className="input-group  justify-center">
                 <input
                   value={value}
-                  onChange={(e) => handleChange(e.target.value)}
+                  onChange={(e) => setValue(e.target.value)}
                   type="text"
                   placeholder="Search here by category..."
                   className="input md:w-[400px] input-bordered text-black font-semibold"
                 />
-                <button className="btn bg-[#FF444A] text-white font-semibold">
+                <button onClick={searchCategory} className="btn bg-[#FF444A] text-white font-semibold">
                  Search
                 </button>
               </div>
@@ -43,5 +45,7 @@ const Banner = ({data}) => {
       </div>
     );
 };
-
+Banner.propTypes = {
+  handleSearchValue: PropTypes.func.isRequired,
+}
 export default Banner;
