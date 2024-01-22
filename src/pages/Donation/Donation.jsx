@@ -60,7 +60,7 @@ const Donation = () => {
           className="block mx-auto bg-[#009444] rounded-md p-3 text-white font-medium"
         >
           {" "}
-          {isShowMore ? " See Less" : " See More"}
+          {isShowMore ? " See Less" : " See More"} 
         </button>
       )}
     </div>
