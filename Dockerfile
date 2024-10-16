@@ -15,4 +15,6 @@ COPY . .
 # Expose the port that the app runs on
 EXPOSE 9003 
 # Start the application
-CMD ["npm", "run", "dev"]
+#CMD ["npm", "run", "dev"]
+CMD ["npm", "run", "dev", "--", "--host"]
+
